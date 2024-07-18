@@ -65,11 +65,11 @@ class GildedRoseTest {
 
     // Smoke Test
     @Test
-    @DisplayName("Given Default item and the sellIn less than zero, and quality is greater than zero, the quality should be decreased by 2")
+    @DisplayName("Given Default item and the sellIn less than zero, and quality is greater than zero, the quality should be decreased by 2 at min 0")
     void given_names_not_in_low_quality_names_and_quality_greater_than_zero_should_decrease_by_2() {
         // given, arrange
         String name = "Default item";
-        int quality = 3;
+        int quality = 1;
         Item item = new Item(name, -1, quality);
         Item[] items = new Item[] { item };
 
@@ -78,7 +78,7 @@ class GildedRoseTest {
         gildedRose.updateQuality();
 
         // then, assert
-        assertEquals(quality - 2, gildedRose.items[0].quality);
+        assertEquals(min(quality - 2, 0), gildedRose.items[0].quality);
     }
 
     // Smoke Test
