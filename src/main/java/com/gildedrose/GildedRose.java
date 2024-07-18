@@ -7,6 +7,10 @@ class GildedRose {
         this.items = items;
     }
 
+    /**
+     * List of names that when the item doesnt hold any of them and its quality greater than 1 the quality be reduced
+     * [Backstage passes to a TAFKAL80ETC concert, Aged Brie, Sulfuras, Hand of Ragnaros]
+     */
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals("Aged Brie")
