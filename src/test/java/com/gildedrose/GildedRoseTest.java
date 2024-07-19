@@ -3,6 +3,7 @@ package com.gildedrose;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -28,11 +29,11 @@ class GildedRoseTest {
 
     // Smoke Test
     @Test
-    @DisplayName("given default item not any of [Backstage passes, Aged Brie, Sulfuras] and quality is less than zero, the quality should not be changed")
+    @DisplayName("given default item not any of [Backstage passes, Aged Brie, Sulfuras] and quality is less than or equals zero, the quality should not be changed")
     void given_default_item_and_quality_less_than_zero_then_quality_should_not_be_changed() {
         // given, arrange
         String name = "Default Item";
-        int quality = -1;
+        int quality = 0;
         Item item = new Item(name, 1, quality);
         Item[] items = new Item[] { item };
 
@@ -78,7 +79,7 @@ class GildedRoseTest {
         gildedRose.updateQuality();
 
         // then, assert
-        assertEquals(min(quality - 2, 0), gildedRose.items[0].quality);
+        assertEquals(max(quality - 2, 0), gildedRose.items[0].quality);
     }
 
     // Smoke Test
@@ -135,7 +136,7 @@ class GildedRoseTest {
         gildedRose.updateQuality();
 
         // then, assert
-        assertEquals(5, gildedRose.items[0].quality);
+        assertEquals(quality + 1, gildedRose.items[0].quality);
     }
 
     // Smoke Test
@@ -201,6 +202,84 @@ class GildedRoseTest {
         String name = "Backstage passes to a TAFKAL80ETC concert";
         int quality = 4;
         int sellIn = 6;
+        Item item = new Item(name, sellIn, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        // then, assert
+        assertEquals(quality + 2, gildedRose.items[0].quality);
+    }
+    // Smoke Test
+    @Test
+    @DisplayName("When Backstage passes item and quality less than 50 and sellIn greater than 10 the quality should be increased by 1")
+    void test_update_quality_given_Backstage_passes_item_and_quality_less_than_50_and_sellIn_greater_than_10_the_quality_should_be_increased_by_1() {
+        // given, arrange
+        String name = "Backstage passes to a TAFKAL80ETC concert";
+        int quality = 4;
+        int sellIn = 11;
+        Item item = new Item(name, sellIn, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        // then, assert
+        assertEquals(quality + 1, gildedRose.items[0].quality);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("When Backstage passes item and quality greater than 49, sellIn greater than 5 and " +
+                    "sellIn less than 11 should not increase the quality")
+    void test_update_quality_given_Backstage_passes_item_and_quality_greater_than_50_and_sellIn_less_than11_and_sellInn_greater_than_5_should_not_increase_the_quality() {
+        // given, arrange
+        String name = "Backstage passes to a TAFKAL80ETC concert";
+        int quality = 50;
+        int sellIn = 7;
+        Item item = new Item(name, sellIn, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        // then, assert
+        assertEquals(quality, gildedRose.items[0].quality);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("When Backstage passes item and quality less than 50, sellIn less than 6 " +
+                    "then, the quality should be decreased by 3")
+    void test_update_quality_given_Backstage_passes_item_and_quality_less_than_50_and_sellIn_less_than11_and_sellInn_greater_than_5_should_not_increase_the_quality() {
+        // given, arrange
+        String name = "Backstage passes to a TAFKAL80ETC concert";
+        int quality = 40;
+        int sellIn = 3;
+        Item item = new Item(name, sellIn, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRose gildedRose = new GildedRose(items);
+        gildedRose.updateQuality();
+
+        // then, assert
+        assertEquals(quality + 3, gildedRose.items[0].quality);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("When Backstage passes item and quality less than 50, sellIn greater than 5 and " +
+                    "sellIn less than 11 should not increase the quality")
+    void test_update_quality_given_Backstage_passes_item_and_quality_less_than_50_and_sellIn_less_than_11_and__greater_than_5_should_increase_the_quality_by_2() {
+        // given, arrange
+        String name = "Backstage passes to a TAFKAL80ETC concert";
+        int quality = 40;
+        int sellIn = 7;
         Item item = new Item(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
