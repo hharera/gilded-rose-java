@@ -310,4 +310,79 @@ class GildedRoseV3Test {
         assertEquals(quality, gildedRoseV3.items[0].quality);
         assertEquals(sellIn, gildedRoseV3.items[0].sellIn);
     }
+
+    // Smoke Test
+    @Test
+    @DisplayName("Conjured Item: Decreases quality by 2 when sellIn is positive")
+    void conjuredItemDecreasesQualityByOneWhenSellInIsPositive() {
+        // given, arrange
+        String name = "Conjured Item";
+        int quality = 4;
+        Item item = new ConjuredItem(name, 1, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRoseV3 gildedRoseV3 = new GildedRoseV3(items);
+        gildedRoseV3.updateQuality();
+
+        // then, assert
+        assertEquals(quality - 2, gildedRoseV3.items[0].quality);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("Conjured Item: Does not change quality when quality is zero or negative")
+    void conjuredItemDoesNotChangeQualityWhenQualityIsZeroOrNegative() {
+        // given, arrange
+        String name = "Conjured Item";
+        int quality = 0;
+        Item item = new ConjuredItem(name, 1, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRoseV3 gildedRoseV3 = new GildedRoseV3(items);
+        gildedRoseV3.updateQuality();
+
+        // then, assert
+        assertEquals(quality, gildedRoseV3.items[0].quality);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("Conjured Item: Decreases sellIn by 1")
+    void conjuredItemDecreasesSellInByOne() {
+        // given, arrange
+        String name = "Default Item";
+        int quality = 2;
+        int sellIn = 2;
+        Item item = new ConjuredItem(name, sellIn, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRoseV3 gildedRoseV3 = new GildedRoseV3(items);
+        gildedRoseV3.updateQuality();
+
+        // then, assert
+        assertEquals(sellIn - 1, gildedRoseV3.items[0].sellIn);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("Conjured Item: Decreases quality by 4 (min 0) when sellIn is negative")
+    void conjuredItemDecreasesQualityByTwoWhenSellInIsNegative() {
+        // given, arrange
+        String name = "Default item";
+        int quality = 5;
+        int sellIn = 0;
+        Item item = new ConjuredItem(name, sellIn, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRoseV3 gildedRoseV3 = new GildedRoseV3(items);
+        gildedRoseV3.updateQuality();
+
+        // then, assert
+        assertEquals(max(quality - 4, 0), gildedRoseV3.items[0].quality);
+    }
+
 }

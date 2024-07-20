@@ -28,6 +28,10 @@ public class Item {
         quality = max(quality - 1, 0);
     }
 
+    public void decreaseQualityBy(int value) {
+        quality = max(quality - value, 0);
+    }
+
     public void decreaseSellIn() {
         sellIn -= 1;
     }
