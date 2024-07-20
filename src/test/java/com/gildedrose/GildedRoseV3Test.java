@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.item.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +8,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GildedRoseV1Test {
+class GildedRoseV3Test {
 
     // Smoke Test
     @Test
@@ -16,11 +17,11 @@ class GildedRoseV1Test {
         // given, arrange
         String name = "Default Item";
         int quality = 2;
-        Item item = new Item(name, 1, quality);
+        Item item = new DefaultItem(name, 1, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -34,11 +35,11 @@ class GildedRoseV1Test {
         // given, arrange
         String name = "Default Item";
         int quality = 0;
-        Item item = new Item(name, 1, quality);
+        Item item = new DefaultItem(name, 1, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -53,11 +54,11 @@ class GildedRoseV1Test {
         String name = "Default Item";
         int quality = 2;
         int sellIn = 2;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new DefaultItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -72,11 +73,11 @@ class GildedRoseV1Test {
         String name = "Default item";
         int quality = 1;
         int sellIn = -1;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new DefaultItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -91,11 +92,11 @@ class GildedRoseV1Test {
         String name = "Aged Brie";
         int quality = 50;
         int sellIn = -1;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new AgedBrieItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -110,11 +111,11 @@ class GildedRoseV1Test {
         String name = "Aged Brie";
         int quality = 4;
         int sellIn = -1;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new AgedBrieItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -129,11 +130,11 @@ class GildedRoseV1Test {
         String name = "Aged Brie";
         int quality = 4;
         int sellIn = 40;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new AgedBrieItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -148,11 +149,11 @@ class GildedRoseV1Test {
         String name = "Aged Brie";
         int quality = 4;
         int sellIn = 40;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new AgedBrieItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -165,13 +166,11 @@ class GildedRoseV1Test {
     void backstagePassesQualityBecomesZeroWhenSellInIsNegative() {
         // given, arrange
         String name = "Backstage passes to a TAFKAL80ETC concert";
-        int quality = 3;
-        int sellIn = 0;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new BackstagePassesItem(name, 0, 3);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -186,11 +185,11 @@ class GildedRoseV1Test {
         String name = "Backstage passes to a TAFKAL80ETC concert";
         int quality = 4;
         int sellIn = 5;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new BackstagePassesItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -205,11 +204,11 @@ class GildedRoseV1Test {
         String name = "Backstage passes to a TAFKAL80ETC concert";
         int quality = 4;
         int sellIn = 6;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new BackstagePassesItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -224,11 +223,11 @@ class GildedRoseV1Test {
         String name = "Backstage passes to a TAFKAL80ETC concert";
         int quality = 4;
         int sellIn = 11;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new BackstagePassesItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -243,11 +242,11 @@ class GildedRoseV1Test {
         String name = "Backstage passes to a TAFKAL80ETC concert";
         int quality = 50;
         int sellIn = 7;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new BackstagePassesItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -262,11 +261,11 @@ class GildedRoseV1Test {
         String name = "Backstage passes to a TAFKAL80ETC concert";
         int quality = 49;
         int sellIn = 3;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new BackstagePassesItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -281,11 +280,11 @@ class GildedRoseV1Test {
         String name = "Backstage passes to a TAFKAL80ETC concert";
         int quality = 40;
         int sellIn = 7;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new BackstagePassesItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
@@ -300,15 +299,90 @@ class GildedRoseV1Test {
         String name = "Sulfuras, Hand of Ragnaros";
         int quality = 4;
         int sellIn = 6;
-        Item item = new Item(name, sellIn, quality);
+        Item item = new SulfurasItem(name, sellIn, quality);
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
         gildedRoseV1.updateQuality();
 
         // then, assert
         assertEquals(quality, gildedRoseV1.items[0].quality);
         assertEquals(sellIn, gildedRoseV1.items[0].sellIn);
     }
+
+    // Smoke Test
+    @Test
+    @DisplayName("Conjured Item: Decreases quality by 2 when sellIn is positive")
+    void conjuredItemDecreasesQualityByOneWhenSellInIsPositive() {
+        // given, arrange
+        String name = "Conjured Item";
+        int quality = 4;
+        Item item = new ConjuredItem(name, 1, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
+        gildedRoseV1.updateQuality();
+
+        // then, assert
+        assertEquals(quality - 2, gildedRoseV1.items[0].quality);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("Conjured Item: Does not change quality when quality is zero or negative")
+    void conjuredItemDoesNotChangeQualityWhenQualityIsZeroOrNegative() {
+        // given, arrange
+        String name = "Conjured Item";
+        int quality = 0;
+        Item item = new ConjuredItem(name, 1, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
+        gildedRoseV1.updateQuality();
+
+        // then, assert
+        assertEquals(quality, gildedRoseV1.items[0].quality);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("Conjured Item: Decreases sellIn by 1")
+    void conjuredItemDecreasesSellInByOne() {
+        // given, arrange
+        String name = "Default Item";
+        int quality = 2;
+        int sellIn = 2;
+        Item item = new ConjuredItem(name, sellIn, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
+        gildedRoseV1.updateQuality();
+
+        // then, assert
+        assertEquals(sellIn - 1, gildedRoseV1.items[0].sellIn);
+    }
+
+    // Smoke Test
+    @Test
+    @DisplayName("Conjured Item: Decreases quality by 4 (min 0) when sellIn is negative")
+    void conjuredItemDecreasesQualityByTwoWhenSellInIsNegative() {
+        // given, arrange
+        String name = "Default item";
+        int quality = 5;
+        int sellIn = 0;
+        Item item = new ConjuredItem(name, sellIn, quality);
+        Item[] items = new Item[] { item };
+
+        // when, act
+        GildedRoseV3 gildedRoseV1 = new GildedRoseV3(items);
+        gildedRoseV1.updateQuality();
+
+        // then, assert
+        assertEquals(max(quality - 4, 0), gildedRoseV1.items[0].quality);
+    }
+
 }

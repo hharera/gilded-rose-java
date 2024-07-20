@@ -7,7 +7,7 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GildedRoseV1Test {
+class GildedRoseV2Test {
 
     // Smoke Test
     @Test
@@ -20,11 +20,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality - 1, gildedRoseV1.items[0].quality);
+        assertEquals(quality - 1, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -38,11 +38,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality, gildedRoseV1.items[0].quality);
+        assertEquals(quality, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -57,11 +57,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(sellIn - 1, gildedRoseV1.items[0].sellIn);
+        assertEquals(sellIn - 1, gildedRoseV2.items[0].sellIn);
     }
 
     // Smoke Test
@@ -76,11 +76,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(max(quality - 2, 0), gildedRoseV1.items[0].quality);
+        assertEquals(max(quality - 2, 0), gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -95,11 +95,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality, gildedRoseV1.items[0].quality);
+        assertEquals(quality, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -114,11 +114,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(min(quality + 2, 50), gildedRoseV1.items[0].quality);
+        assertEquals(min(quality + 2, 50), gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -133,11 +133,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality + 1, gildedRoseV1.items[0].quality);
+        assertEquals(quality + 1, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -152,11 +152,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(sellIn - 1, gildedRoseV1.items[0].sellIn);
+        assertEquals(sellIn - 1, gildedRoseV2.items[0].sellIn);
     }
 
     // Smoke Test
@@ -171,11 +171,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(0, gildedRoseV1.items[0].quality);
+        assertEquals(0, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -190,11 +190,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality + 3, gildedRoseV1.items[0].quality);
+        assertEquals(quality + 3, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -209,11 +209,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality + 2, gildedRoseV1.items[0].quality);
+        assertEquals(quality + 2, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -228,11 +228,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality + 1, gildedRoseV1.items[0].quality);
+        assertEquals(quality + 1, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -247,11 +247,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality, gildedRoseV1.items[0].quality);
+        assertEquals(quality, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -266,11 +266,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(min(quality + 3, 50), gildedRoseV1.items[0].quality);
+        assertEquals(min(quality + 3, 50), gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -285,11 +285,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality + 2, gildedRoseV1.items[0].quality);
+        assertEquals(quality + 2, gildedRoseV2.items[0].quality);
     }
 
     // Smoke Test
@@ -304,11 +304,11 @@ class GildedRoseV1Test {
         Item[] items = new Item[] { item };
 
         // when, act
-        GildedRoseV1 gildedRoseV1 = new GildedRoseV1(items);
-        gildedRoseV1.updateQuality();
+        GildedRoseV2 gildedRoseV2 = new GildedRoseV2(items);
+        gildedRoseV2.updateQuality();
 
         // then, assert
-        assertEquals(quality, gildedRoseV1.items[0].quality);
-        assertEquals(sellIn, gildedRoseV1.items[0].sellIn);
+        assertEquals(quality, gildedRoseV2.items[0].quality);
+        assertEquals(sellIn, gildedRoseV2.items[0].sellIn);
     }
 }
